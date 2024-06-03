@@ -17,8 +17,10 @@ export const renderCards = (data) => {
       <dl itemscope itemtype="TMDBMovies">
       <img src="https://image.tmdb.org/t/p/w500/${card.poster_path}" alt="${card.original_title}" />
       <dd itemprop="title">${card.original_title}</dd>
+      <dd itemprop="genre">${card.genre_ids}</dd>
       <dd itemprop="releaseDate">${card.release_date}</dd>
-      </dl>  
+      </dl> 
+      <button id="buttonSeeMore">Ver más</button> 
        `
       cardLi.innerHTML=semanticHTML;
       cardLi.classList.add('flex-item');
