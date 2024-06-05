@@ -9,6 +9,11 @@ export const renderCards = (data) => {
     //iterar sobre el array de peliculas para crear elementos <li> para cada uno
     data.forEach(card => {
       const cardLi = document.createElement("li");
+      // paso 1 empieza con esto
+      // a cardLi agregarle un evento
+      // consonsole.log que te diga que va a ir al detalle
+      //paso3 invocar la funcion navigateTo y mandarle la nueva ruta y el id de la pelicula
+      // navigateTo('/detail',{id:card.id} )
       
       cardLi.setAttribute('itemscope', '')
       cardLi.setAttribute('itemtype', card.id)
