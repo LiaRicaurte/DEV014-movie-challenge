@@ -1,4 +1,4 @@
-// ya no se usa
+/* ya no se usa
 import { renderCards } from "./components/cards";
 import { renderDetail } from "./components/details";
 import { getApiMovies } from "./components/movieApp";

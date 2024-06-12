@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite src/",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest"
   },
   "devDependencies": {
     "jest": "^29.7.0",

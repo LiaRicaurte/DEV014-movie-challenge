@@ -1,11 +1,13 @@
-let ROUTES = {};
-let rootEl;
+let ROUTES = {}; // este es un objeto que va almacenar todas las rutas del proyecto, compuestas por un pathname (key) y un componente/vista (value)
+let rootEl = ''; // hace referencia al elemento HTML (#root) que va a pintar las vistas/componentes
 
-export const setRootEl = (el) => {
+//esta función (un setter) asigna un valor a rootEl y lo valida 
+export const setRootEl = (el) => { //parámetro (el) debe ser el elemento <div> del DOM que pinta la data consumida
   // assign rootEl
   rootEl = el 
 }
 
+//esta función (un setter) asigna un valor a ROUTES y lo valida 
 export const setRoutes = (routes) => {
   // optional Throw errors if routes isn't an object
   // optional Throw errors if routes doesn't define an /error route
@@ -13,14 +15,20 @@ export const setRoutes = (routes) => {
   Object.assign(ROUTES,routes)
 }
 
-const queryStringToObject = (queryString) => {
-  // esto tambien es del paso 2
+
+export const queryStringToObject = (queryString) => {
+    if(!queryString) 
+    return {};
   // convert query string to URLSearchParams
+  let params = new URLSearchParams(queryString)
   // convert URLSearchParams to an object
+  const obj = Object.fromEntries(params)
   // return the object
+  return obj
 }
 
-const renderView = (pathname, props={}) => { // aqui te falta pero esto es del paso 2
+// esta función se encarga de limpiar el contenido de root y pintar nuevo contenido (para que no se añadan nuevos componentes a los ya pintados)
+const renderView = (pathname, props={}) => {
   // clear the root element
   rootEl.innerHTML=''
   // find the correct view in ROUTES for the pathname
@@ -30,19 +38,25 @@ const renderView = (pathname, props={}) => { // aqui te falta pero esto es del p
     rootEl.innerHTML= 'Error 404 ruta no encontrada'
   }
   // render the correct view passing the value of props
+  //renderView(pathname, props)
   // add the view element to the DOM root element
-  rootEl.appendChild(route())
+  rootEl.appendChild(route(props))
 } 
 
 export const navigateTo = (pathname, props={}) => { // esta funcion te falta
   // paso 2
   // update window history with pushState
+  window.history.pushState({},pathname, `${window.location.origin+pathname}${props?`?${new URLSearchParams(props)}`:''}`)
   // render the view with the pathname and props
+  renderView(pathname, props)
 }
 
-export const onURLChange = (location='/') => {
+export const onURLChange = (location='/', props = {}) => { //location es el objeto que contiene las rutas
   // parse the location for the pathname and search params
+
   // convert the search params to an object
+  // queryStringToObject()// pasarle la url
+  const params ={...props, ...queryStringToObject(window.location.search)}
   // render the view with the pathname and object
-  renderView(location)
+  renderView(location, params)
 }
