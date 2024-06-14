@@ -123,7 +123,7 @@ h1 {
   margin-left: 25px;
 }
 
-.filtros {
+.filters {
   display: flex;
   margin-left: 70px;
 }
@@ -247,4 +247,12 @@ dd[itemprop="releaseDate"] {
   
 }
 
-/*font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+/*@media (max-width: 1024px) {
+  /tablet horizontal
+  }
+@media (max-width: 768px) {
+  /tablet vertical
+}
+@media (max-width: 480px) {
+  /telefono
+}
