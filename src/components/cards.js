@@ -25,19 +25,15 @@ export const renderCards = (data) => {
       cardLi.innerHTML=semanticHTML;
       cardLi.classList.add('flex-item');
 
-      // paso 1 empieza con esto
-      // a cardLi agregarle un evento
-      const buttonSeeMore = cardLi.querySelector("#buttonSeeMore")
-      
-      buttonSeeMore.addEventListener('click', function(event) {
-       console.log('soy el boton <ver mas> y voy a ver e detalle de '+ card.id);
+      const buttonSeeMore = cardLi.querySelector("#buttonSeeMore");
+      buttonSeeMore.addEventListener('click', function() {
+       //console.log('soy el boton <ver mas> y voy a ver e detalle de '+ card.id);
        navigateTo('/detail', {id:card.id})
       })
-      //paso3 invocar la funcion navigateTo y mandarle la nueva ruta y el id de la pelicula
-      // navigateTo('/detail',{id:card.id} )
-  
+
       ul.append(cardLi);  
     })
+    
     //usar metodo append para agregar elementos <li> a elementos <ul>
     return ul;
   };

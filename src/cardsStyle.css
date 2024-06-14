@@ -168,9 +168,6 @@ select {
   background-color: #1d4252e8;/
 }
 
-#app {
-
-}
 
 .flex-container {
   display: flex;
@@ -192,6 +189,7 @@ select {
   border-radius: 15px;
   margin: 25px;
   box-shadow: 5px 10px 10px 5px #1d4252d6;
+}
 
 dl[itemtype="TMDBMovies"] {
   width: 250px;

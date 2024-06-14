@@ -10,6 +10,7 @@
   <body>
     <header>
       <h1>CINE EN CASA</h1>
+
       <div class="filtros">
         <label for="genre">Filtrar por género</label>
         <select data-testid="select-filter" name="genre" id="genre">
@@ -17,11 +18,9 @@
       
         <label for="releaseDate">Ordenar por año</label>
         <select data-testid="select-sort" name="releaseDate" id="releaseDate">
-          <option value="selecciona"></option>
-          <option value="asc">1950-2024</option>
-          <option value="desc">2024-1950</option>
         </select> 
       </div>
+      
       <button data-testid="button-clear" id="buttonClear">Limpiar</button>
     </header>
     <div id="app"></div>
