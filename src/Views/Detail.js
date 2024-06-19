@@ -3,9 +3,12 @@ import { getApiDetail } from "../lib/getMovies"
 
 export const Detail = (props)=>{
     //console.log(props);
-    const {id} = props
+    const section = document.createElement('section')
+    const header = document.createElement('header')
+    const title = document.createElement('h1')
     const detail = document.createElement('div')
 
+    const {id} = props
     getApiDetail(id)
         .then((response)=>{
             const detailResult = renderDetail(response)
@@ -15,5 +18,10 @@ export const Detail = (props)=>{
         .catch((err)=>{
             console.log(err)
         })
-    return detail
+
+    title.textContent = 'CINE EN CASA'
+    header.appendChild(title)
+    section.append(header, detail)
+
+    return section
 }

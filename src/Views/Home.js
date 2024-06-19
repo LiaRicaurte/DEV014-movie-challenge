@@ -1,8 +1,15 @@
 
+import filterByYear from "../components/filterByYear.js";
+import { getMovieFilter } from "../lib/getMovies.js";
 import { renderCards } from "../components/cards.js";
 import { getApiMovies } from "../lib/getMovies.js";
 
 export const Home =()=>{
+    const section = document.createElement('section')
+    const header = document.createElement('header')
+    const title = document.createElement('h1')
+    const filter = filterByYear()
+
     const movies = document.createElement('div')
 
     //función asíncrona
@@ -14,7 +21,12 @@ export const Home =()=>{
             movies.appendChild(moviesResult) 
         })
         .catch(err=>console.log(err))
-    return movies    
+
+    title.textContent = 'CINE EN CASA'
+    header.append(title, filter)
+    section.append(header, movies)
+    
+    return section    
 }
 
  

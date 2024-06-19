@@ -20,9 +20,8 @@ export function getApiDetail (id) {
       .then(response => response.json())
       .then(response => response)
       .catch(err => console.error(err));
+  }
 
-    /*return fetch(`https://api.themoviedb.org/3/movie/${id}?token=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0Mzk0NjllMmYxYWQ3NzY3ZDhiNDhmZDA2Y2ZmMGRhNCIsInN1YiI6IjY2NDQyZDM4ODg4MjFmN2UxNjJlYjljZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._n8tNpaYE_--VwfIVmvSj-mMfAnv299W_0-2eLG-ukU`)
-    .then(response => response.json())
-    .then(response => response)
-    .catch(err => console.error(err));*/
+  export function getMovieFilter () {
+    //crear función que haga una petición de data de filtrado de peliculas a la API 
   }

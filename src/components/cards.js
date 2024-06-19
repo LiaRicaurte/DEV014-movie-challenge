@@ -17,7 +17,6 @@ export const renderCards = (data) => {
         <dl itemscope itemtype="TMDBMovies">
         <img src="https://image.tmdb.org/t/p/w500/${card.poster_path}" alt="${card.original_title}" />
         <dd itemprop="title">${card.original_title}</dd>
-        <dd itemprop="genre">${card.genre_ids}</dd>
         <dd itemprop="releaseDate">${card.release_date}</dd>
         </dl> 
         <button id="buttonSeeMore">Ver más</button> 
@@ -28,10 +27,6 @@ export const renderCards = (data) => {
       const buttonSeeMore = cardLi.querySelector("#buttonSeeMore");
       buttonSeeMore.addEventListener('click', function() {
        //console.log('soy el boton <ver mas> y voy a ver e detalle de '+ card.id);
-        const filters = document.querySelector("#filters") 
-        filters.remove();
-        const buttonClear = document.querySelector("#buttonClear")
-        buttonClear.remove();
         navigateTo('/detail', {id:card.id})
       })
 
