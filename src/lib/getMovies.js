@@ -22,6 +22,18 @@ export function getApiDetail (id) {
       .catch(err => console.error(err));
   }
 
-  export function getMovieFilter () {
+  export function getMovieFilter (year) {
     //crear función que haga una petición de data de filtrado de peliculas a la API 
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0Mzk0NjllMmYxYWQ3NzY3ZDhiNDhmZDA2Y2ZmMGRhNCIsInN1YiI6IjY2NDQyZDM4ODg4MjFmN2UxNjJlYjljZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._n8tNpaYE_--VwfIVmvSj-mMfAnv299W_0-2eLG-ukU'
+      }
+    };
+    
+    return fetch(`https://api.themoviedb.org/3/discover/movie?year=${year}`, options)
+      .then(response => response.json())
+      .then(response => response.results)
+      .catch(err => console.error(err));
   }

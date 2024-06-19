@@ -9,8 +9,19 @@ export const Home =()=>{
     const header = document.createElement('header')
     const title = document.createElement('h1')
     const filter = filterByYear()
-
     const movies = document.createElement('div')
+
+    filter.addEventListener('change', (e) => {
+        //console.log(e.target.value)
+        getMovieFilter(e.target.value)
+            .then((response)=>{
+                movies.innerHTML = ''
+                //console.log(response)
+                const filterResult = renderCards(response)
+                movies.appendChild(filterResult)
+            })
+            .catch(err=>console.log(err))
+    })
 
     //función asíncrona
     getApiMovies()
