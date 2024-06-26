@@ -1,0 +1,16 @@
+{
+  "name": "movie-challenge",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite src/",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "vite": "^5.2.0"
+  }
+}
