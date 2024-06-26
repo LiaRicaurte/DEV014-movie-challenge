@@ -19,9 +19,9 @@ setRoutes(routes);
 const root = document.querySelector('#app')
 setRootEl(root);
 
-//window.onpopstate = function () {
-  //onURLChange(window.location.pathname)
-//};
+window.onpopstate = function () {
+  onURLChange(window.location.pathname)
+};
 
 window.addEventListener("DOMContentLoaded", () => {
   onURLChange(window.location.pathname)
