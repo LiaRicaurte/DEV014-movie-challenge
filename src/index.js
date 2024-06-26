@@ -17,7 +17,12 @@ setRoutes(routes);
 
 // Set the root element where views will be rendered
 const root = document.querySelector('#app')
+setRootEl(root);
+
+//window.onpopstate = function () {
+  //onURLChange(window.location.pathname)
+//};
+
 window.addEventListener("DOMContentLoaded", () => {
-  setRootEl(root);
   onURLChange(window.location.pathname)
 });

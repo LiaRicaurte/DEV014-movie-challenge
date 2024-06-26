@@ -9,20 +9,20 @@ export const renderCards = (data) => {
     //iterar sobre el array de peliculas para crear elementos <li> para cada uno
     data.forEach(card => {
       const cardLi = document.createElement("li");
+      cardLi.classList.add('flex-item');
       
       cardLi.setAttribute('itemscope', '')
       cardLi.setAttribute('itemtype', card.id)
       //crear un elemento <dl> dentro de cada elemento <li> con los detalles de la peliucla
       const semanticHTML= `
+      <img src="https://image.tmdb.org/t/p/w500/${card.poster_path}" alt="${card.original_title}" />
         <dl itemscope itemtype="TMDBMovies">
-        <img src="https://image.tmdb.org/t/p/w500/${card.poster_path}" alt="${card.original_title}" />
         <dd itemprop="title">${card.original_title}</dd>
         <dd itemprop="releaseDate">${card.release_date}</dd>
         </dl> 
-        <button id="buttonSeeMore">Ver más</button> 
+        <button id="buttonSeeMore">See more</button> 
         `
       cardLi.innerHTML=semanticHTML;
-      cardLi.classList.add('flex-item');
 
       const buttonSeeMore = cardLi.querySelector("#buttonSeeMore");
       buttonSeeMore.addEventListener('click', function() {

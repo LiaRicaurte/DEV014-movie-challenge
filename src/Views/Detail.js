@@ -4,6 +4,7 @@ import { getApiDetail } from "../lib/getMovies"
 export const Detail = (props)=>{
     //console.log(props);
     const section = document.createElement('section')
+    section.classList.add("detailSection")
     const header = document.createElement('header')
     const title = document.createElement('h1')
     const detail = document.createElement('div')
@@ -19,7 +20,7 @@ export const Detail = (props)=>{
             console.log(err)
         })
 
-    title.textContent = 'CINE EN CASA'
+    title.textContent = 'HOME CINEMA'
     header.appendChild(title)
     section.append(header, detail)
 

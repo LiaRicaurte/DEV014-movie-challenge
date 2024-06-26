@@ -2,26 +2,31 @@
 
 //crear función que renderice los detalles de peliculas en elementos del DOM
 export const renderDetail = (movie) => {
-  console.log(movie)
+  //console.log(movie)
   // crear un elemento que contenga el componente de vista
     const div = document.createElement("div");
     div.classList.add('flex-movie');
-    //<img itemprop="background" src="https://image.tmdb.org/t/p/w500/${movie.backdrop_path}" alt="${movie.original_title}" />
+    //<img class="imageBackground" src="https://image.tmdb.org/t/p/w500/${movie.backdrop_path}" alt="${movie.original_title}" />
 
-    const semanticHTML = `  
-        <img src="https://image.tmdb.org/t/p/w500/${movie.belongs_to_collection.poster_path}" alt="${movie.original_title}" />
-        <dl itemscope itemtype="TMDBMovies">
-        <div class="movieHeader">
-          <dt itemprop="name"></dt><dd itemprop="description">${movie.original_title}</dd>
-          <dt itemprop="name"></dt><dd itemprop="description">${movie.release_date}</dd>
+    const semanticHTML = `
+        <div>  
+          <img class="image" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.original_title}" />
         </div>
-        </div class="movieDetails">
-          <dt itemprop="name">Duración:</dt><dd itemprop="description">${movie.runtime}</dd>  
-          <dt itemprop="name">Género:</dt><dd itemprop="description">${movie.genres.map(gen=>`${gen.name}`)}</dd>
-        </div class="movieOverview">
-          <dt itemprop="name">Sinopsis:</dt><dd itemprop="description">${movie.overview}</dd>
+        <div class="details">
+          <dl itemscope itemtype="TMDBMovies">
+            <div class="movieHeader">
+            <dt itemprop="name"></dt><dd itemprop="detailTitle">${movie.original_title}</dd>
+            <dt itemprop="name"></dt><dd itemprop="detailDate">${movie.release_date}</dd>
+          </div>
+          <div class="movieInfo">
+            <div class="runTime"><dt itemprop="name"><b>Runtime:</b></dt><dd itemprop="description">${movie.runtime + ' min'}</dd></div>  
+            <div class="genre"><dt itemprop="name"><b>Genre:</b></dt><dd itemprop="description">${movie.genres.map(gen=>` ${gen.name}`)}</dd></div>
+          </div>
+          <div class="movieOverview">
+            <dt itemprop="name"><b>Overview:</b></dt><dd itemprop="description">${movie.overview}</dd>
+          </div>
+          </dl> 
         </div>
-        </dl> 
         `
       div.innerHTML = semanticHTML;
     // recibir como propiedad el id 

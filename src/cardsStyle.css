@@ -13,13 +13,13 @@
 
 body {
   margin: 0;
+  padding: 0;
   background-color: #1d4252d6;
 }
 
 header {
   display: flex;
   flex-direction: row;
-  margin-bottom: 25px;
   padding: 15px;
   background-color: #D9D9D9;
   box-shadow: 0px 10px 10px 5px #1d4252d6;
@@ -91,6 +91,7 @@ select {
   align-content: space-around;
   padding: 0;
   margin: auto 0;
+  margin-top: 25px;
 }
 
 .flex-item {
@@ -105,8 +106,6 @@ select {
 }
 
 dl[itemtype="TMDBMovies"] {
-  width: 250px;
-  height: 450px;
   margin: 0;
 }
 
@@ -143,7 +142,7 @@ dd[itemprop="releaseDate"] {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 85%;
   color: #D9D9D9;
-  margin-top: -20px;
+  margin-top: 0px;
   margin-left: 175px;
   border-radius: 15px 0px;
   border-width: 5;

@@ -2,7 +2,7 @@ const filterByYear = () => {
     const filter = document.createElement('div')
     filter.classList.add('filter')
     filter.innerHTML = `
-        <label for="releaseDate">Filtrar por año</label>
+        <label for="releaseDate">Filter by year</label>
         <select name="releaseDate" id="releaseDate">
             <option value="2021">2021</option>
             <option value="2022">2022</option>

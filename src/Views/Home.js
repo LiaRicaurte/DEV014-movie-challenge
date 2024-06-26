@@ -26,14 +26,14 @@ export const Home =()=>{
     //función asíncrona
     getApiMovies()
         .then((response)=>{
-            //console.log('ver response en home.js', response)
+            //  console.log('ver response en home.js', response)
             const moviesResult = renderCards(response)
             //console.log('ver result', moviesResult)
             movies.appendChild(moviesResult) 
         })
         .catch(err=>console.log(err))
 
-    title.textContent = 'CINE EN CASA'
+    title.textContent = 'HOME CINEMA'
     header.append(title, filter)
     section.append(header, movies)
     

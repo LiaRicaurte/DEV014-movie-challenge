@@ -43,8 +43,8 @@ const renderView = (pathname, props={}) => {
   rootEl.appendChild(route(props))
 } 
 
-export const navigateTo = (pathname, props={}) => { // esta funcion te falta
-  // paso 2
+//esta funcion se encarga de almacenar el historial de rutas que ha visitado el navegador, lo cual nos permite usar el boton atras y adelante del navegador
+export const navigateTo = (pathname, props={}) => {
   // update window history with pushState
   window.history.pushState({},pathname, `${window.location.origin+pathname}${props?`?${new URLSearchParams(props)}`:''}`)
   // render the view with the pathname and props
@@ -53,10 +53,11 @@ export const navigateTo = (pathname, props={}) => { // esta funcion te falta
 
 export const onURLChange = (location='/', props = {}) => { //location es el objeto que contiene las rutas
   // parse the location for the pathname and search params
-
-  // convert the search params to an object
-  // queryStringToObject()// pasarle la url
+  // convert the search params to an object, pasarle la url con queryStringToObject
   const params ={...props, ...queryStringToObject(window.location.search)}
   // render the view with the pathname and object
+  //console.log(params) 
   renderView(location, params)
 }
+
+//onpopstat
