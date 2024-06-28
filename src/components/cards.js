@@ -26,13 +26,11 @@ export const renderCards = (data) => {
 
       const buttonSeeMore = cardLi.querySelector("#buttonSeeMore");
       buttonSeeMore.addEventListener('click', function() {
-       //console.log('soy el boton <ver mas> y voy a ver e detalle de '+ card.id);
         navigateTo('/detail', {id:card.id})
       })
 
       ul.append(cardLi);  
     })
 
-    //usar metodo append para agregar elementos <li> a elementos <ul>
     return ul;
   };

@@ -59,5 +59,3 @@ export const onURLChange = (location='/', props = {}) => { //location es el obje
   //console.log(params) 
   renderView(location, params)
 }
-
-//onpopstat
