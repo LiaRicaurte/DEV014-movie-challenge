@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   // Especifica la carpeta raíz de tu proyecto
-  root: 'src',
+  root: './',
   
   // Configura las opciones de build
   build: {
