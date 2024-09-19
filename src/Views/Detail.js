@@ -1,22 +1,22 @@
 import { renderDetail } from "../components/details.js";
 import { getApiDetail } from "../lib/getMovies"
 
-export const Detail = (props)=>{
-    //console.log(props);
+export const Detail = (props) => {
+
     const section = document.createElement('section')
     section.classList.add("detailSection")
     const header = document.createElement('header')
     const title = document.createElement('h1')
     const detail = document.createElement('div')
 
-    const {id} = props
+    const { id } = props
     getApiDetail(id)
-        .then((response)=>{
+        .then((response) => {
             const detailResult = renderDetail(response)
             detail.appendChild(detailResult)
-            //console.log(response)
+
         })
-        .catch((err)=>{
+        .catch((err) => {
             console.log(err)
         })
 
